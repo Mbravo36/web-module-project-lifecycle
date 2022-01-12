@@ -1,6 +1,37 @@
 import React from 'react';
+import User from './components/User';
+import FollowerList from './components/FollowerList';
 
 class App extends React.Component {
+  state = {
+    currentUser: 'Mbravo36',
+    user: {
+      avatar_url: "https://avatars.githubusercontent.com/u/93017587?v=4",
+      html_url: "https://github.com/Mbravo36",
+      name: 'Maribel Garcia',
+      login: "Mbravo36",
+      public_repos: 33,
+      followers: 5,
+    },
+    followers: [
+      {
+      login: "FftyShadesofCode",
+      avatar_url: "https://avatars.githubusercontent.com/u/31264591?v=4",
+      html_url: "https://github.com/FftyShadesofCode",
+      },
+      {
+      login: "cainpalmer",
+      avatar_url: "https://avatars.githubusercontent.com/u/86445750?v=4",
+      html_url: "https://github.com/cainpalmer",
+      },
+      {
+      login: "kimnivore",
+      avatar_url: "https://avatars.githubusercontent.com/u/91563653?v=4",
+      html_url: "https://github.com/kimnivore",
+      }
+    ]
+  }
+
   render() {
     return(<div>
       <h1>Github Card</h1>
@@ -9,30 +40,9 @@ class App extends React.Component {
         <button>Search</button>
       </form>
 
-      <div id='UserCard'>
-      <img width='300px' src="https://avatars.githubusercontent.com/u/93017587?v=4" />
-      <a target="_blank" href="https://github.com/Mbravo36"> <h3>Maribel Garcia</h3></a>
-      <p>(Mbravo36)</p>
-      <p>Total Repos: 33</p>
-      <p>Total Followers: 2</p>
-      </div>
-
-      <div id='followers'>
-        <div className='follower'>
-        <img width='200px' src="https://avatars.githubusercontent.com/u/31264591?v=4" />
-       <a target="_blank" href="https://github.com/FftyShadesofCode"> <p>Philip R McDavid</p></a>
-        </div>
-        <div className='follower'>
-        <img width='200px' src="https://avatars.githubusercontent.com/u/86445750?v=4" />
-       <a target="_blank" href="https://github.com/cainpalmer"> <p>Cain Palmer</p></a>
-        </div>
-        <div className='follower'>
-        <img width='200px' src="https://avatars.githubusercontent.com/u/91563653?v=4" />
-       <a target="_blank" href="https://github.com/kimnivore"> <p>Kim</p></a>
-        </div>
-
-      </div>
-
+      <User user={this.state.user} />
+      <FollowerList followers={this.state.followers}/>
+      
     </div>);
   }
 }
