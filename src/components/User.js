@@ -3,7 +3,7 @@ import React from "react";
 class User extends React.Component{
     render() {
         const {user} = this.props;
-        console.log(user);
+        
         return (
         <div id='UserCard'>
             <img width='300px' src={user.avatar_url} />
